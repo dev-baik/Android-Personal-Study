@@ -1,33 +1,22 @@
 package com.example.activity
 
-import android.app.AlertDialog
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.activity.databinding.ActivityMainBinding
+import com.example.activity.databinding.ActivitySecondBinding
 
-private const val TAG = "LifeCycle1"
+private const val TAG = "LifeCycle2"
 
-class MainActivity : AppCompatActivity() {
-    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+class SecondActivity : AppCompatActivity() {
+    private val binding by lazy { ActivitySecondBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         Log.d(TAG, "onCreate()")
 
-        binding.btnSecond.setOnClickListener {
-            val intent = Intent(applicationContext, SecondActivity::class.java)
-            startActivity(intent)
-        }
-
-        binding.btnDialog.setOnClickListener {
-            val dlg = AlertDialog.Builder(this)
-            dlg.setTitle("다이얼로그 실행")
-            dlg.setPositiveButton("닫기", null)
-
-            dlg.show()
+        binding.btnFinish.setOnClickListener {
+            finish()
         }
     }
 
