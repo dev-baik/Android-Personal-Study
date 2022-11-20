@@ -29,4 +29,9 @@ class SecondActivity : AppCompatActivity() {
         setResult(RESULT_OK, replyIntent)
         finish()
     }
+
+    fun gotoHomework(view: View) {
+        val intent = Intent(applicationContext, HomeworkActivity::class.java)
+        startActivity(intent)
+    }
 }
