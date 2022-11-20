@@ -20,6 +20,24 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        if(savedInstanceState != null) {
+            val isVisible = savedInstanceState.getBoolean("reply_visible")
+            if(isVisible) {
+                binding.textHeaderReply.visibility = View.VISIBLE
+                binding.textMessageReply.text = savedInstanceState.getString("reply_text")
+                binding.textMessageReply.visibility = View.VISIBLE
+            }
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        if(binding.textHeaderReply.visibility == View.VISIBLE) {
+            outState.putBoolean("reply_visible", true)
+            outState.putString("reply_text", binding.textMessageReply.text.toString())
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
