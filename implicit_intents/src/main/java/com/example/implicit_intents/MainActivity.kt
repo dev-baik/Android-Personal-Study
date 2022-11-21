@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.core.app.ShareCompat
 import com.example.implicit_intents.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -40,5 +41,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun shareText(view: View) {}
+    fun shareText(view: View) {
+        val text = binding.shareEdittext.text.toString()
+        val mimeType = "text/plain"
+
+        ShareCompat.IntentBuilder
+            .from(this)
+            .setType(mimeType)
+            .setChooserTitle("Share this text with: ")
+            .setText(text)
+            .startChooser()
+    }
 }
