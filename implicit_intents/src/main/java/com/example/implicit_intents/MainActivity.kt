@@ -1,7 +1,10 @@
 package com.example.implicit_intents
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.example.implicit_intents.databinding.ActivityMainBinding
 
@@ -13,7 +16,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
     }
 
-    fun openWebsite(view: View) {}
+    fun openWebsite(view: View) {
+        val url = binding.websiteEdittext.text.toString()
+        val webpage = Uri.parse(url)
+        val intent = Intent(Intent.ACTION_VIEW, webpage)
+
+        if (intent.resolveActivity(packageManager) != null) {
+            startActivity(intent)
+        } else {
+            Log.d("ImplicitIntents", "Can't handle this intent!")
+        }
+    }
+
     fun openLocation(view: View) {}
     fun shareText(view: View) {}
 }
