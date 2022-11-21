@@ -16,3 +16,4 @@ rootProject.name = "Android-PersonalStudy"
 include ':app'
 include ':activity'
 include ':intent'
+include ':implicit_intents'
