@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import androidx.core.app.ShareCompat
@@ -51,5 +52,15 @@ class MainActivity : AppCompatActivity() {
             .setChooserTitle("Share this text with: ")
             .setText(text)
             .startChooser()
+    }
+
+    fun startCamera(view: View) {
+        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+
+        if (intent.resolveActivity(packageManager) != null) {
+            startActivity(intent)
+        } else {
+            Log.d("ImplicitIntents", "Can't handle this intent!")
+        }
     }
 }
