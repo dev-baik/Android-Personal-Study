@@ -34,5 +34,14 @@ class MainActivity : AppCompatActivity() {
             }
             dialog.show(supportFragmentManager, null)
         }
+
+        binding.button3.setOnClickListener {
+            val dialog = CustomDialog3()
+
+            dialog.setOnOKClickListener { content ->
+                binding.text1.text = content
+            }
+            dialog.show(supportFragmentManager, dialog.tag)
+        }
     }
 }
