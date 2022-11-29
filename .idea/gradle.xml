@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/activity" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/bottom_sheet_dialog_fragment" />
+            <option value="$PROJECT_DIR$/databinding" />
             <option value="$PROJECT_DIR$/dialog_fragment" />
             <option value="$PROJECT_DIR$/implicit_intents" />
             <option value="$PROJECT_DIR$/implicit_intents_receiver" />
